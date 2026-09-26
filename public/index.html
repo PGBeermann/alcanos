@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nomenclatura IUPAC de alcanos</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="jsme/jsme.nocache.js"></script>
+</head>
+<body>
+  <header class="encabezado">
+    <h1>Nomenclatura IUPAC de alcanos</h1>
+    <p>Alcanos acíclicos y cíclicos ramificados · Recomendaciones IUPAC 2013</p>
+  </header>
+
+  <main class="contenedor">
+    <section class="controles" aria-label="Opciones del ejercicio">
+      <label>Tipo de estructura
+        <select id="tipo">
+          <option value="mixto">Mixto (aleatorio)</option>
+          <option value="aciclico">Acíclico ramificado</option>
+          <option value="ciclico">Cíclico ramificado</option>
+        </select>
+      </label>
+      <label>Nivel
+        <select id="nivel">
+          <option value="1">Básico</option>
+          <option value="2" selected>Intermedio</option>
+          <option value="3">Avanzado</option>
+        </select>
+      </label>
+      <div class="botones">
+        <button id="btnGenerar" class="primario" type="button">Generar</button>
+        <button id="btnDesplegar" class="secundario" type="button" disabled>Desplegar</button>
+      </div>
+    </section>
+
+    <div class="rejilla">
+      <section class="tarjeta">
+        <div class="tarjeta-cab">
+          <h2>Estructura</h2>
+          <span id="formula" class="formula"></span>
+        </div>
+        <div id="jsme_container" class="editor"><p class="cargando">Cargando editor JSME…</p></div>
+        <div class="dibujo">
+          <label class="interruptor"><input type="checkbox" id="modoDibujo"> Modo dibujo libre</label>
+          <button id="btnNombrarDibujo" class="terciario" type="button" hidden>Nombrar mi dibujo</button>
+        </div>
+      </section>
+
+      <section class="tarjeta">
+        <h2>Tu respuesta</h2>
+        <form id="formRespuesta" autocomplete="off">
+          <input id="respuesta" type="text" placeholder="Ej.: 3-etil-2-metilhexano" aria-label="Nombre propuesto">
+          <p class="ayuda">Escribe el nombre y presiona <strong>Desplegar</strong> para comparar.</p>
+        </form>
+
+        <div id="resultado" class="resultado" hidden>
+          <div id="veredicto" class="veredicto" hidden></div>
+          <dl>
+            <dt>Nombre preferido IUPAC (PIN)</dt>
+            <dd id="pinEs" class="nombre"></dd>
+            <dt id="dtGeneral">Nombre aceptado en nomenclatura general</dt>
+            <dd id="generalEs" class="nombre"></dd>
+            <dt>En inglés (idioma normativo IUPAC)</dt>
+            <dd id="pinEn" class="nombre en"></dd>
+          </dl>
+          <h3>Justificación</h3>
+          <ul id="justificacion"></ul>
+        </div>
+        <p id="mensaje" class="mensaje" role="status"></p>
+      </section>
+    </div>
+
+    <details class="reglas">
+      <summary>Reglas aplicadas (Blue Book IUPAC 2013)</summary>
+      <ol>
+        <li><strong>Estructura padre.</strong> Si hay un anillo, el anillo es el padre (P-44.1.2.2). En acíclicos, la cadena más larga (P-44.3).</li>
+        <li><strong>Cadenas de igual longitud:</strong> la de mayor número de sustituyentes (P-45.2.1).</li>
+        <li><strong>Numeración:</strong> localizadores más bajos en el primer punto de diferencia (P-31.1.4); si persiste el empate, el localizador más bajo al sustituyente citado primero alfabéticamente (P-31.1.4.3.4).</li>
+        <li><strong>Sustituyentes:</strong> «alquil» si la valencia libre está en el extremo; «alcan-x-il» si no (P-29.2). <em>tert</em>-butil es prefijo preferido; isopropil, isobutil y <em>sec</em>-butil solo en nomenclatura general (P-29.6).</li>
+        <li><strong>Orden alfabético:</strong> se ignoran di-, tri-, <em>sec</em>-, <em>tert</em>-; en prefijos compuestos se considera el nombre completo (P-14.5).</li>
+        <li><strong>Multiplicadores:</strong> di-, tri-… ; bis-, tris-… para prefijos compuestos (P-14.2).</li>
+        <li><strong>Localizadores:</strong> se omiten en anillos monosustituidos (P-14.3.4).</li>
+      </ol>
+    </details>
+  </main>
+
+  <footer class="pie">Editor molecular: JSME (Bienfait &amp; Ertl, <em>J. Cheminform.</em> 2013, 5, 24).</footer>
+  <script src="app.js"></script>
+</body>
+</html>
