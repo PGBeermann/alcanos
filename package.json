@@ -1,0 +1,16 @@
+{
+  "name": "alcanos-iupac",
+  "version": "1.0.0",
+  "description": "Generador de estructuras de alcanos (acíclicos y cíclicos ramificados) con JSME y nomenclatura IUPAC 2013",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test test/*.test.js"
+  },
+  "engines": { "node": ">=18" },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2",
+    "jsme-editor": "2024.4.29"
+  }
+}
