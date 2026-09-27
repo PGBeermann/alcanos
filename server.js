@@ -11,7 +11,7 @@ const { generar } = require('./src/generador');
 
 const app = express();
 const PORT = Number(process.env.PORT) || 3000;
-const HOST = process.env.HOST || '127.0.0.1';
+const HOST = process.env.HOST || '0.0.0.0';
 
 app.disable('x-powered-by');
 app.use(express.json({ limit: '4kb' }));
